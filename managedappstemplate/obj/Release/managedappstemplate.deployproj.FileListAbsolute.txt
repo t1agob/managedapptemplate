@@ -1,0 +1,7 @@
+C:\Users\tiagob\Source\Repos\managedapptemplate\managedappstemplate\bin\Release\mainTemplate.json
+C:\Users\tiagob\Source\Repos\managedapptemplate\managedappstemplate\bin\Release\mainTemplate.parameters.json
+C:\Users\tiagob\Source\Repos\managedapptemplate\managedappstemplate\bin\Release\nestedTemplates\lifetimeEnvironment.json
+C:\Users\tiagob\Source\Repos\managedapptemplate\managedappstemplate\bin\Release\nestedTemplates\productionEnvironment.json
+C:\Users\tiagob\Source\Repos\managedapptemplate\managedappstemplate\bin\Release\nestedTemplates\testEnvironment.json
+C:\Users\tiagob\Source\Repos\managedapptemplate\managedappstemplate\bin\Release\nestedTemplates\developmentEnvironment.json
+C:\Users\tiagob\Source\Repos\managedapptemplate\managedappstemplate\obj\Release\managedappstemplate.deployproj.CoreCompileInputs.cache

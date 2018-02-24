@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+  },
+  "variables": {
+    "prod120301234Name": "[concat('prod124', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "prod",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "sku": {
+        "name": "F1"
+      },
+      "dependsOn": [],
+      "tags": {
+        "displayName": "prod"
+      },
+      "properties": {
+        "name": "prod",
+        "numberOfWorkers": 1
+      }
+    },
+    {
+      "name": "[variables('prod120301234Name')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', 'prod')]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', 'prod'))]": "Resource",
+        "displayName": "prod120301234"
+      },
+      "properties": {
+        "name": "[variables('prod120301234Name')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'prod')]"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}

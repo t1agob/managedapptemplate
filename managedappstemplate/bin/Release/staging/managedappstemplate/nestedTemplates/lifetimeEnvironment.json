@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+  },
+  "variables": {
+    "lifetime120301234Name": "[concat('lifetime124', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "lifetime",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "sku": {
+        "name": "F1"
+      },
+      "dependsOn": [],
+      "tags": {
+        "displayName": "lifetime"
+      },
+      "properties": {
+        "name": "lifetime",
+        "numberOfWorkers": 1
+      }
+    },
+    {
+      "name": "[variables('lifetime120301234Name')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', 'lifetime')]"
+      ],
+      "tags": {
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', 'lifetime'))]": "Resource",
+        "displayName": "lifetime120301234"
+      },
+      "properties": {
+        "name": "[variables('lifetime120301234Name')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', 'lifetime')]"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
